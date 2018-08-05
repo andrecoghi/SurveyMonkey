@@ -2,6 +2,9 @@ package de.marketlogicsoftware.task.surveyservice.controller.handler;
 
 import java.io.Serializable;
 
+/**
+ * holds data for error response
+ */
 public class ErrorResponse implements Serializable {
 
     private static final long serialVersionUID = 2854102527276171578L;
@@ -15,6 +18,12 @@ public class ErrorResponse implements Serializable {
     public ErrorResponse() {
     }
 
+    /**
+     * assigns give parameters to corresponding properties
+     *
+     * @param errorCode
+     * @param errorMessage
+     */
     public ErrorResponse(int errorCode, String errorMessage) {
         this.errorCode = errorCode;
         this.error_description = errorMessage;

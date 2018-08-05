@@ -4,7 +4,7 @@ import javax.persistence.*;
 import java.io.Serializable;
 
 /**
- * entity for survey
+ * entity class for survey
  */
 @Entity
 public class SurveyEntity implements Serializable {

@@ -14,6 +14,9 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.client.RestTemplate;
 
+/**
+ * has endpoints for posting survey and loading statistics for a particular question
+ */
 @RequestMapping("survey")
 @RestController
 public class SurveyController {
@@ -31,6 +34,12 @@ public class SurveyController {
     private String questionServiceId;
 
 
+    /**
+     * validates request and saves in case it is a valid request, otherwise throws corresponding exception with error code
+     *
+     * @param survey - to create
+     * @return - no content (nothing is required to be returned)
+     */
     @PostMapping
     public ResponseEntity create(@RequestBody SurveyEntity survey) {
         validateRequest(survey);
@@ -38,6 +47,13 @@ public class SurveyController {
         return ResponseEntity.noContent().build();
     }
 
+    /**
+     * load statistics for a question id, if question id don't have statistics throws {@link BadRequestException} with
+     * a proper error code and message
+     *
+     * @param questionId - question for which statistics should be returned
+     * @return - statistics
+     */
     @GetMapping("/question/{questionId}/statistics")
     public ResponseEntity<SurveyResultDTO> getQuestionResult(@PathVariable Long questionId) {
         SurveyResultDTO surveyResult = surveyService.getStatistics(questionId);
@@ -47,6 +63,11 @@ public class SurveyController {
         return ResponseEntity.ok(surveyResult);
     }
 
+    /**
+     * validates whether the survey is valid or not. If no throws an exception with details
+     *
+     * @param survey - to validate
+     */
     private void validateRequest(SurveyEntity survey) {
         if (survey.getQuestionId() == null) {
             throw new BadRequestException("Question id is a must");

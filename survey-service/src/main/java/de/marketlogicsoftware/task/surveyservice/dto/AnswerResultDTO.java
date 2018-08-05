@@ -1,5 +1,8 @@
 package de.marketlogicsoftware.task.surveyservice.dto;
 
+/**
+ * holds statistics for a particular answer
+ */
 public class AnswerResultDTO {
 
     private Long answerId;

@@ -3,6 +3,9 @@ package de.marketlogicsoftware.task.surveyservice.dto;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * holds data for survey statistics
+ */
 public class SurveyResultDTO {
 
     private Long totalNumber;

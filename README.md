@@ -4,9 +4,7 @@ This project is a demonstration of usage os MicroServices with Spring Boot imple
 
 ## Used Technologies
 
-Spring Boot 2 used is as a runner. Only question-service application uses Spring Boot 1.5.15. This is done to support swagger with spring-rest-data-api. As of now, swagger does not support Spring Boot 2 with spring-data-rest: https://github.com/springfox/springfox/issues/2298
-
-Spring Boot 2 is used as a runner. The only application which uses Spring Boot 1.5.15 is the question-service application. This is done to support swagger with spring-rest-data-api. As of now, swagger does not support Spring Boot 2 with spring-data-rest: https://github.com/springfox/springfox/issues/2298
+Spring Boot 2 is used as a runner. The only application which uses Spring Boot 1.5.15 is the question-service application. This is done to support swagger with spring-data-rest. As of now, swagger does not support Spring Boot 2 with spring-data-rest. Here is why: *https://github.com/springfox/springfox/issues/2298*
 
 In addition to this, below technologies are used:
 - JPA and H2 in-memory database for storing and retrieving data
@@ -17,7 +15,7 @@ In addition to this, below technologies are used:
 
 ## Getting Started
 
-For running the project you must have the following softwares installed in your machine:
+For running the project you must have the following software tools installed in your machine:
 
 ```$xslt
 - JDK8
@@ -37,6 +35,7 @@ Follow below steps to run the application:
 
 ###### Now the application is fully running. You can open swagger ui and test it:
 Swagger ui for Question Answers MicroService is here: **http://{host}:8080/question-service/swagger-ui.html**
+
 Swagger ui for Survey MicroService is here: **http://{host}:8080/survey-service/swagger-ui.html**
 
-Some data is saved during start.
+Some data is saved during the start of application in order to make testing easier.
