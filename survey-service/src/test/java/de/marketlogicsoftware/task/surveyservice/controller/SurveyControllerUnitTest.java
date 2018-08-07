@@ -86,6 +86,19 @@ public class SurveyControllerUnitTest {
     }
 
     @Test
+    public void testCreateHystrixFallbackMethod() throws Exception {
+        SurveyEntity survey = new SurveyEntity(0L, 0L);
+
+        when(restTemplate.getForObject(Mockito.any(String.class), eq(Boolean.class))).thenThrow(new RuntimeException("random unchecked exception"));
+
+        mockMvc.perform(post("/survey")
+                .accept(MediaType.APPLICATION_JSON)
+                .contentType(MediaType.APPLICATION_JSON)
+                .content(objectMapper.writeValueAsString(survey)))
+                .andExpect(status().is5xxServerError());
+    }
+
+    @Test
     public void testCreateSurveySuccess() throws Exception {
         SurveyEntity survey = new SurveyEntity(0L, 0L);
 
