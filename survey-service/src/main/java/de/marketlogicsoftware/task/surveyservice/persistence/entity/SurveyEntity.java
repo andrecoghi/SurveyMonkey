@@ -1,5 +1,8 @@
 package de.marketlogicsoftware.task.surveyservice.persistence.entity;
 
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
+
 import javax.persistence.*;
 import java.io.Serializable;
 
